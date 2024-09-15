@@ -1,3 +1,5 @@
+#finally added to github
+
 from models.User import User
 from models.UserManager import UserManager
 
