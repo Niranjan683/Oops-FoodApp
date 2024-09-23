@@ -1,4 +1,9 @@
-from User import User
+try:
+    from .acc import User
+except Exception:
+    import sys,os
+    print(sys.path)
+    print(os.getcwd())
 
 class UserManager:
     __User = []

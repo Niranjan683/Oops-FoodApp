@@ -1,7 +1,8 @@
 #finally added to github
 
-from models.User import User
+from models.acc import User
 from models.UserManager import UserManager
+from  controllers.MainMenu import MainMenu
 
 class LoginSystem:
 
@@ -14,7 +15,11 @@ class LoginSystem:
         
         if user is not None:
             print("loged in Successfully! ")
-            pass # NExt step
+            menu = MainMenu()
+            menu.Start()
+
+            
+            
         else:
             print(" Invalid MailId / Password. Please re-enter your MailId and Password  ")
     
@@ -32,23 +37,17 @@ class LoginSystem:
     def GuestLogin(self):
         pass
 
+    def Exit():
+        print("Thank You For Using Our Application")
+        exit()
+
     def ValidateOption(self,option):
-        if option == 1:
-            self.Login()
-        elif option == 2:
-            self.Register()
-        elif option == 3:
-            self.GuestLogin()
-        elif option== 4:
-            print("Thank You For Using Our Application")
-            exit()
-        else:
-            print(" Invalid Choice... Please Retry. ")
+        getattr(self,option)()
 
-
+    
 
 class FoodApp:
-    LoginOptions= {1: 'Log-in', 2:'register',3:'Guest',4:"Exit"}
+    LoginOptions= {1: 'Login', 2:'Register',3:'Guestlogin',4:"Exit"}
 
     @staticmethod
     def Init():
@@ -63,10 +62,10 @@ class FoodApp:
             print()
        
             try:
-                choice= int(input("Please Enter Your Choice : "))
+                choice = int(input("Please Enter Your Choice : "))
                 print(f"Great! You've selected  option {choice}")
-                loginSysten.ValidateOption(choice)
-            except ValueError:
+                loginSysten.ValidateOption(FoodApp.LoginOptions[choice])
+            except (ValueError,KeyError):
                 print("Invalid Choice type. you should give the choice as an Integer")
         
 
