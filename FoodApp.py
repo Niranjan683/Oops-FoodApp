@@ -37,7 +37,7 @@ class LoginSystem:
     def GuestLogin(self):
         pass
 
-    def Exit():
+    def Exit(self):
         print("Thank You For Using Our Application")
         exit()
 

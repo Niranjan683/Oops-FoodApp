@@ -1,4 +1,4 @@
-from ..models.FoodItems import FoodItems
+from models.FoodItems import FoodItems
 from models.FoodMenu import FoodMenu
 from models.Restaurent import Restaurant
 #class foo
